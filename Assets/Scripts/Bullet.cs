@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 5;
     public int bulletDamage = 10;
     public int points = 0;
-    public Text pointsText; 
+    //public Text pointsText; 
 
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed;
+
+        //pointsText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,11 +22,11 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().DoDamage(bulletDamage);
             Destroy(gameObject);
 
-            if (collision.gameObject == null)
+            /*if (collision.gameObject == null)
             {
                 points += 10;
                 pointsText.text = "Points: " + points.ToString();
-            }
+            }*/
         }
     }
 }

@@ -7,10 +7,12 @@ public class WaveManager : MonoBehaviour
     public List<GameObject> enemyPrefabs = new List<GameObject>();
     public int numEnemiesFirstWave = 5;
     public int numAdditionalEnemiesPerWave = 3;
+    public int totalNumOfWaves = 5;
     public float delayBetweenSpawns = .5f;
     public float delayBetweenWaves = 3;
 
     private int numEnemiesThisWave;
+    private int currentWaveNum = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -30,18 +32,27 @@ public class WaveManager : MonoBehaviour
     //The loop should have the 'yield' keyword inside it somewhere
     IEnumerator SpawnWave()
     {
-        for(int i = 0; i < numEnemiesThisWave; ++i)
+        for (int i = 0; i < numEnemiesThisWave; ++i)
         {
             GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             Instantiate(prefabToSpawn, WaypointManager.staticWaypoints[0], Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenSpawns);
 
-            //This for loop will spawn 1 enemy, then pause and we will return to it
-            //in a later frame.
+           //This for loop will spawn 1 enemy, then pause and we will return to it
+           //in a later frame.
         }
 
         numEnemiesThisWave += numAdditionalEnemiesPerWave;
         yield return new WaitForSeconds(delayBetweenWaves);
-        StartCoroutine(SpawnWave());
+
+        if (currentWaveNum < totalNumOfWaves)
+        {
+            currentWaveNum += 1;
+            StartCoroutine(SpawnWave());
+        }
+        else
+            StopCoroutine(SpawnWave());
+        
     }
+
 }

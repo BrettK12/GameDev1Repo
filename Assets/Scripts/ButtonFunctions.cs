@@ -36,4 +36,9 @@ public class ButtonFunctions : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
 }

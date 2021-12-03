@@ -191,7 +191,9 @@ MonoBehaviour:
   speed: 3
   distanceThreshold: 0.1
   maxHealth: 10
+  points: 0
   healthBar: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!61 &-6467808364899036582
 BoxCollider2D:
   m_ObjectHideFlags: 0

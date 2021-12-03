@@ -913,8 +913,9 @@ MonoBehaviour:
   - {fileID: 2738528842530554376, guid: be57da935f3a66e43a90f03592c35932, type: 3}
   numEnemiesFirstWave: 5
   numAdditionalEnemiesPerWave: 3
+  totalNumOfWaves: 3
   delayBetweenSpawns: 0.5
-  delayBetweenWaves: 3
+  delayBetweenWaves: 5
 --- !u!114 &145972928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,7 +936,7 @@ MonoBehaviour:
   - {x: 1.92, y: 2.96}
   - {x: 1.92, y: -2.93}
   - {x: 6.49, y: -2.93}
-  - {x: 6.49, y: 3.59}
+  - {x: 6.49, y: 3.18}
 --- !u!4 &145972929
 Transform:
   m_ObjectHideFlags: 0
@@ -1377,7 +1378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456200552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.53, y: 3.19, z: 0}
+  m_LocalPosition: {x: 6.48, y: 2.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1581014040}
@@ -5486,7 +5487,7 @@ GameObject:
   - component: {fileID: 1474497790}
   - component: {fileID: 1474497789}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6645,7 +6646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 705, y: 253}
+  m_AnchoredPosition: {x: 699, y: 495}
   m_SizeDelta: {x: 107.81, y: 36.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2095970525

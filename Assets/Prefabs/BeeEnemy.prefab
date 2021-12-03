@@ -83,6 +83,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300018, guid: a17b82db4c237af42913daeabdc14796,
         type: 3}
+    - target: {fileID: 2738528842530554379, guid: be57da935f3a66e43a90f03592c35932,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738528842530554379, guid: be57da935f3a66e43a90f03592c35932,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2738528842530554381, guid: be57da935f3a66e43a90f03592c35932,
         type: 3}
       propertyPath: speed

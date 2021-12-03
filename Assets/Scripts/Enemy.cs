@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,13 +14,15 @@ public class Enemy : MonoBehaviour
     public float distanceThreshold = .75f;
     public int maxHealth = 10;
     public int points = 0;
+    public int totalNumberOfEnemies = 3;
     public Slider healthBar;
     public Text scoreText;
 
     private Vector2 targetWaypoint;
-    private int targetWaypointIndex;
     private SpriteRenderer sr;
     private int currentHealth;
+    private int targetWaypointIndex;
+    //private int numOfEnemiesDestroyed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,8 @@ public class Enemy : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar = GetComponentInChildren<Slider>();
+
+        
     }
     public void DoDamage(int damage)
     {
@@ -46,7 +51,9 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+           
             points += 10;
+            Debug.Log("10 points were added");
             scoreText.text = "Points: " + points.ToString();
         }
         healthBar.value = (float)currentHealth / maxHealth;
@@ -71,5 +78,17 @@ public class Enemy : MonoBehaviour
             sr.flipX = true;
         else
             sr.flipX = false;
+
+        
+    }
+
+    void StartNextLevel()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    void FixedUpdate()
+    {
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 }
