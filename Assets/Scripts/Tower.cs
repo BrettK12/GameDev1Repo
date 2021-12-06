@@ -20,6 +20,8 @@ public class Tower : MonoBehaviour
     private Transform target;
     private CircleCollider2D detectionArea;
 
+    AudioSource soundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class Tower : MonoBehaviour
         contactFilter.useTriggers = true;
         contactFilter.SetLayerMask(LayerMask.GetMask("Enemies"));
         StartCoroutine(TargetAndShoot());
+        soundEffect = gameObject.GetComponent<AudioSource>();
     }
 
     //CoRoutine
@@ -50,6 +53,8 @@ public class Tower : MonoBehaviour
                 transform.up = direction;
                 Instantiate(bulletPrefab, transform.position, transform.rotation);
                 yield return new WaitForSeconds(1/bulletsPerSecond);
+                soundEffect.pitch = Random.Range(.8f, 1.2f);
+                soundEffect.Play();
             }
         }
     }

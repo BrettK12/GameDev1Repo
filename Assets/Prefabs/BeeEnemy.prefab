@@ -103,5 +103,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2738528842530554381, guid: be57da935f3a66e43a90f03592c35932,
+        type: 3}
+      propertyPath: enemyPointValue
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be57da935f3a66e43a90f03592c35932, type: 3}

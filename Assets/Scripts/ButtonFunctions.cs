@@ -6,9 +6,20 @@ using System.Collections.Generic;
 public class ButtonFunctions : MonoBehaviour
 {
     public GameObject pausePanel;
+    public GameObject instructionsPanel;
 
-    public void Play()
+    AudioSource soundEffect;
+
+    void Start()
     {
+        soundEffect = gameObject.GetComponent<AudioSource>();
+    }
+
+    public void NewGame()
+    {
+        if (PlayerPrefs.HasKey("PointsID"))
+            PlayerPrefs.DeleteKey("PointsID");
+
         SceneManager.LoadScene("Level1");
     }
 
@@ -40,5 +51,30 @@ public class ButtonFunctions : MonoBehaviour
     public void Credits()
     {
         SceneManager.LoadScene("CreditsScene");
+    }
+
+    public void NextLevel()
+    {
+        SaveStuff();
+        SceneManager.LoadScene("Level2");
+    }
+
+    public void StartTheLevel()
+    {
+        soundEffect.Play();
+        Time.timeScale = 1;
+        instructionsPanel.SetActive(false);
+        
+    }
+
+    public void Continue()
+    {
+        if (PlayerPrefs.HasKey("PointsID"))
+            SceneManager.LoadScene("Level2");
+    }
+
+    public void SaveStuff()
+    {
+        PlayerPrefs.SetInt("PointsID", PointsManager.GetPointValue());
     }
 }

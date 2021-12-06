@@ -36,6 +36,7 @@ public class PlayerBase : MonoBehaviour
         {
             DoDamage(5);//Should add and get this value from the enemy component on the enemy instead.
             Destroy(collision.gameObject);
+            Enemy.numOfEnemiesDestroyed++;
         }
     }
 }

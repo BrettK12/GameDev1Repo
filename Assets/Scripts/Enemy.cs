@@ -13,16 +13,16 @@ public class Enemy : MonoBehaviour
     public float speed = 5;
     public float distanceThreshold = .75f;
     public int maxHealth = 10;
-    public int points = 0;
-    public int totalNumberOfEnemies = 3;
+    public int enemyPointValue = 10;
+    public static int numOfEnemiesDestroyed = 0;
+    //public int totalNumberOfEnemies = 3;
     public Slider healthBar;
-    public Text scoreText;
+    //public Text scoreText;
 
     private Vector2 targetWaypoint;
     private SpriteRenderer sr;
     private int currentHealth;
     private int targetWaypointIndex;
-    //private int numOfEnemiesDestroyed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +51,13 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
-           
-            points += 10;
+
+            /*points += 10;
             Debug.Log("10 points were added");
-            scoreText.text = "Points: " + points.ToString();
+            scoreText.text = "Points: " + points.ToString();*/
+
+            PointsManager.increasePoints(enemyPointValue);
+            numOfEnemiesDestroyed++;
         }
         healthBar.value = (float)currentHealth / maxHealth;
     }
@@ -89,6 +92,6 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        //scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 }
