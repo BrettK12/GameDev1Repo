@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     public float delayBetweenWaves = 3;
 
     private int numEnemiesThisWave;
-    private int currentWaveNum = 1;
+    private int currentWaveNum;
     private int numOfEnemiesSpawned = 0;
     private bool wavesEnded;
 
@@ -26,6 +26,8 @@ public class WaveManager : MonoBehaviour
         numEnemiesThisWave = numEnemiesFirstWave;
         StartCoroutine(SpawnWave());
         wavesEnded = false;
+        currentWaveNum = 1;
+       
 
         //If you want to stop the coroutine before its finished, 
         //do it like this:
@@ -52,7 +54,8 @@ public class WaveManager : MonoBehaviour
         {
             GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
             Instantiate(prefabToSpawn, WaypointManager.staticWaypoints[0], Quaternion.identity);
-            numOfEnemiesSpawned++;
+            //RIGHT HERE YOU DUMMY YOU CHANGED THIS
+            ++numOfEnemiesSpawned;
             yield return new WaitForSeconds(delayBetweenSpawns);
 
            //This for loop will spawn 1 enemy, then pause and we will return to it

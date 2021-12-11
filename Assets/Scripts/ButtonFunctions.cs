@@ -7,6 +7,8 @@ public class ButtonFunctions : MonoBehaviour
 {
     public GameObject pausePanel;
     public GameObject instructionsPanel;
+    public GameObject mainMenuPanel;
+    public GameObject creditsMenuPanel;
 
     AudioSource soundEffect;
 
@@ -50,7 +52,15 @@ public class ButtonFunctions : MonoBehaviour
 
     public void Credits()
     {
-        SceneManager.LoadScene("CreditsScene");
+        //SceneManager.LoadScene("CreditsScene");
+        mainMenuPanel.SetActive(false);
+        creditsMenuPanel.SetActive(true);
+    }
+
+    public void CreditsToMainMenu()
+    {
+        mainMenuPanel.SetActive(true);
+        creditsMenuPanel.SetActive(false);
     }
 
     public void NextLevel()

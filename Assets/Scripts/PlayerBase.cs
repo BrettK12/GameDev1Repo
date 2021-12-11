@@ -7,11 +7,14 @@ public class PlayerBase : MonoBehaviour
     public int maxHealth = 100;
     public GameObject gameOverPanel;
 
+    ParticleSystem ps;
+
     int health;
 
     private void Start()
     {
         health = maxHealth;
+        ps = gameObject.GetComponent<ParticleSystem>();
     }
 
     public void DoDamage(int amount)
@@ -36,7 +39,10 @@ public class PlayerBase : MonoBehaviour
         {
             DoDamage(5);//Should add and get this value from the enemy component on the enemy instead.
             Destroy(collision.gameObject);
-            Enemy.numOfEnemiesDestroyed++;
+            //changed from destroyed++
+            ++Enemy.numOfEnemiesDestroyed;
+
+            ps.Play();
         }
     }
 }
